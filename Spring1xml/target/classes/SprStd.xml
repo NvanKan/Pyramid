@@ -4,12 +4,20 @@
        xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
-
-    <bean id="Student" class="org.example.Student"  />
-    <bean id="Phone" class = "org.example.Phone"  />
-    <bean id="Address" class = "org.example.Address" />
-
-
-
-
+<context:component-scan base-package="org.example"/>
+    <bean id="student" class="org.example.Student" init-method="init" destroy-method="destroy">
+        <property name="id" value="007"/>
+        <property name="name" value="Niko"/>
+        <property name="phone" ref="phone"/>
+        <property name="address" ref="address"/>
+    </bean>
+    <bean id="phone" class="org.example.Phone" init-method="init" destroy-method="destroy">
+        <property name="mob" value="1234543210"/>
+    </bean>
+    <bean id="address" class="org.example.Address" init-method="init" destroy-method="destroy">
+        <property name="city" value="Fayetteville"/>
+        <property name="state" value="NC"/>
+        <property name="country" value="USA"/>
+        <property name="zipCode" value="12345"/>
+    </bean>
 </beans>

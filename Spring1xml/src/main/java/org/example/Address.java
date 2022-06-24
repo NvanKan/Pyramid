@@ -1,10 +1,12 @@
 package org.example;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Address {
 
     private String city;
     private String state;
-    private String county;
+    private String country;
     private String zipCode;
 
     public String getCity() {
@@ -23,12 +25,12 @@ public class Address {
         this.state = state;
     }
 
-    public String getCounty() {
-        return county;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCounty(String county) {
-        this.county = county;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getZipCode() {
@@ -38,4 +40,24 @@ public class Address {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+
+    public Address() {
+    }
+
+    public Address(String city, String state, String country, String zipCode) {
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        this.zipCode = zipCode;
+    }
+
+    @Override
+public String toString() {
+    return "Address{" +
+                "city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", country='" + country + '\'' +
+                ", zipcode='" + zipCode + '\'' +
+                '}';
+}
 }
